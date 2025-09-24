@@ -1,51 +1,200 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Interactive Flow Template 1</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>قالب Tier 1 بالعربية</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root {
-  --bg:#f0f4f8; --accent:#10b981; --muted:#6b7280; --card:#fff; --radius:12px;
-  font-family: Inter, system-ui, Arial, sans-serif;
-}
-body { background: var(--bg); margin:0; padding:24px; color:#111827; text-align:center; }
-.container { max-width:1100px; margin:auto; }
-.hero img { max-width:320px; width:60%; margin:0 auto 12px; display:block; }
-.hero h1 { font-size:28px; margin:20px 0; color:#0f172a; }
-.btn { background: var(--accent); color:#fff; padding:10px 20px; border-radius:var(--radius); text-decoration:none; font-weight:700; cursor:pointer; transition: transform 0.3s; }
-.btn:hover { transform:scale(1.05); }
-.btn-row { margin:14px 0 18px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
-.flow-container { display:flex; flex-wrap:wrap; justify-content:center; gap:18px; margin-top:24px; }
-.flow-box { min-width:200px; max-width:260px; background:var(--card); border-radius:var(--radius); padding:16px; box-shadow:0 8px 24px rgba(2,6,23,0.06); }
-.flow-box h4 { margin-bottom:8px; color: var(--accent); }
-.flow-box p { color: var(--muted); font-size:0.9rem; }
-.arrow { width:2px; height:36px; background:#c7b3ff; margin:12px auto; }
-@media(max-width:720px){ .flow-box { min-width:160px; max-width:90%; } }
+  :root {
+    --primary: #4f46e5;
+    --secondary: #6366f1;
+    --bg: #f9fafb;
+    --text: #1f2937;
+    --muted: #6b7280;
+    --radius: 16px;
+    --max-width: 1000px;
+  }
+
+  * { box-sizing: border-box; margin:0; padding:0; }
+  body {
+    font-family: 'Tajawal', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 20px;
+  }
+
+  .container {
+    max-width: var(--max-width);
+    margin: auto;
+    background: #fff;
+    border-radius: var(--radius);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    overflow: hidden;
+    padding: 20px;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 16px 0;
+    direction: rtl;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-direction: row-reverse;
+  }
+
+  .logo {
+    width: 56px; height: 56px;
+    border-radius: var(--radius);
+    background: linear-gradient(135deg,var(--primary),var(--secondary));
+    color: white; font-weight: bold;
+    display:flex; align-items:center; justify-content:center;
+  }
+
+  nav { display:flex; gap:16px; flex-wrap: wrap; }
+  nav a {
+    text-decoration:none;
+    color: var(--text);
+    font-weight:500;
+    transition: color 0.3s;
+  }
+  nav a:hover { color: var(--primary); }
+
+  .hero { display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:center; padding: 40px 0; }
+  .hero h1 { font-size:2rem; color:var(--primary); margin-bottom:10px; }
+  .hero p { color: var(--muted); }
+  .btn {
+    display:inline-block;
+    padding:10px 20px;
+    border-radius: var(--radius);
+    font-weight:600;
+    text-decoration:none;
+    margin-left:10px;
+    transition: all 0.3s ease;
+  }
+  .btn-primary { background: var(--primary); color:#fff; }
+  .btn-primary:hover { background: var(--secondary); }
+  .btn-outline { border:2px solid var(--primary); color:var(--primary); }
+  .btn-outline:hover { background: var(--primary); color:#fff; }
+
+  section { margin-top: 40px; padding:20px; border-radius: var(--radius); }
+  h2 { color: var(--primary); margin-bottom:16px; }
+
+  .grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:20px; }
+
+  .card {
+    background: #fff;
+    padding:20px;
+    border-radius: var(--radius);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    text-align:center;
+  }
+
+  footer { text-align:center; padding:20px 0; color:var(--muted); font-size:14px; margin-top:40px; }
+
+  /* Fade-in Tier 1 animation */
+  .fade-in { opacity:0; transform:translateY(12px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-in.visible { opacity:1; transform:translateY(0); }
+
+  @media(max-width:768px){ .hero { grid-template-columns:1fr; } }
 </style>
 </head>
 <body>
+
 <div class="container">
-  <div class="hero">
-    <img src="https://via.placeholder.com/320x100" alt="Logo" />
-    <h1>Lorem Ipsum Interactive Flow</h1>
-    <div class="btn-row">
-      <a href="#" class="btn">Join Now</a>
-      <a href="#" class="btn">Learn More</a>
+
+  <!-- Header -->
+  <header>
+    <div class="brand">
+      <div class="logo">ش</div>
+      <div>
+        <div style="font-weight:700">الاسم الكامل</div>
+        <div style="color:var(--muted); font-size:13px">الوظيفة · الموقع</div>
+      </div>
     </div>
-  </div>
+    <nav>
+      <a href="#about">من أنا</a>
+      <a href="#portfolio">المشاريع</a>
+      <a href="#contact" class="btn btn-primary">تواصل معي</a>
+    </nav>
+  </header>
 
-  <div class="flow-container">
-    <div class="flow-box"><h4>Step 1</h4><p>Lorem ipsum dolor sit amet.</p></div>
-    <div class="arrow"></div>
-    <div class="flow-box"><h4>Step 2</h4><p>Consectetur adipiscing elit.</p></div>
-    <div class="arrow"></div>
-    <div class="flow-box"><h4>Step 3</h4><p>Sed do eiusmod tempor.</p></div>
-  </div>
+  <!-- Hero -->
+  <section class="hero fade-in">
+    <div>
+      <h1>مرحبًا بك في قالب Tier 1</h1>
+      <p>هذا قالب بسيط ومرن يمكنك تخصيصه بسهولة لمعرض أعمالك أو سيرتك الذاتية.</p>
+      <a href="#contact" class="btn btn-primary">تواصل الآن</a>
+      <a href="#portfolio" class="btn btn-outline">عرض المشاريع</a>
+    </div>
+    <div class="card fade-in">
+      <div class="logo" style="width:80px;height:80px;margin:auto;">AB</div>
+      <p style="margin-top:10px;color:var(--muted)">معلومات مختصرة</p>
+    </div>
+  </section>
 
-  <div class="btn-row" style="margin-top:20px;">
-    <a href="#" class="btn">Get Started Today</a>
-  </div>
+  <!-- About -->
+  <section id="about" class="fade-in">
+    <h2>من أنا</h2>
+    <p>أنا محترف ملتزم بتقديم محتوى عالي الجودة ومبني على الخبرة العملية والتعليم المستمر. أعمل على تطوير مهاراتي باستمرار لتحقيق أفضل النتائج.</p>
+  </section>
+
+  <!-- Portfolio -->
+  <section id="portfolio" class="fade-in">
+    <h2>المشاريع</h2>
+    <div class="grid">
+      <div class="card">المشروع 1</div>
+      <div class="card">المشروع 2</div>
+      <div class="card">المشروع 3</div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="fade-in">
+    <h2>تواصل معي</h2>
+    <form onsubmit="sendEmail(event)">
+      <label for="name">الاسم</label>
+      <input id="name" name="name" type="text" required style="width:100%;padding:10px;margin-bottom:12px;border-radius:8px;border:1px solid #ccc;">
+      <label for="email">البريد الإلكتروني</label>
+      <input id="email" name="email" type="email" required style="width:100%;padding:10px;margin-bottom:12px;border-radius:8px;border:1px solid #ccc;">
+      <label for="message">الرسالة</label>
+      <textarea id="message" name="message" required style="width:100%;padding:10px;margin-bottom:12px;border-radius:8px;border:1px solid #ccc;"></textarea>
+      <button type="submit" class="btn btn-primary">إرسال</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; <span id="year"></span> قالب Tier 1 بالعربية
+  </footer>
+
 </div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  function sendEmail(e){
+    e.preventDefault();
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+    window.location.href = `mailto:example@email.com?subject=${encodeURIComponent('رسالة من '+name)}&body=${encodeURIComponent(message+'\n\nمن: '+name+' ('+email+')')}`;
+  }
+
+  // Fade-in sections
+  window.addEventListener('load', () => {
+    document.querySelectorAll('.fade-in').forEach((el,i) => {
+      setTimeout(()=>el.classList.add('visible'), i*150);
+    });
+  });
+</script>
+
 </body>
-</html>
+        </html>
